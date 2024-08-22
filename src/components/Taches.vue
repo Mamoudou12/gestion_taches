@@ -88,7 +88,7 @@ const deleteTache = (index) => {
   tachesStore.removeTache(index);
 };
 
-// onMounted(() => {
-//   // Charger les projets ou d'autres données nécessaires
-// });
+onMounted(() => {
+  // Charger les projets ou d'autres données nécessaires
+});
 </script>
