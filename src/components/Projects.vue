@@ -1,37 +1,58 @@
 <template>
-  <div class="container mt-4">
-    <h1 class="mb-4">Projets</h1>
-    <form @submit.prevent="addProjet" class="mb-4">
+  <div class="container mt-5">
+    <h1 class="text-center mb-4 display-4 text-primary fw-bold">
+      🌟 Gestion des Projets 🌟
+    </h1>
+    
+    <form @submit.prevent="addProjet" class="p-4 rounded shadow-sm bg-light">
       <div class="row g-3">
         <div class="col-md-4">
-          <input v-model="newProjet.nom" class="form-control" placeholder="Nom du projet" required />
+          <input
+            v-model="newProjet.nom"
+            class="form-control form-control-lg border-primary"
+            placeholder="Nom du projet"
+            required
+          />
         </div>
         <div class="col-md-3">
-          <input v-model="newProjet.dateDebut" type="date" class="form-control" required />
+          <input
+            v-model="newProjet.dateDebut"
+            type="date"
+            class="form-control form-control-lg border-primary"
+            required
+          />
         </div>
         <div class="col-md-3">
-          <input v-model="newProjet.dateFin" type="date" class="form-control" required />
+          <input
+            v-model="newProjet.dateFin"
+            type="date"
+            class="form-control form-control-lg border-primary"
+            required
+          />
         </div>
         <div class="col-md-2">
-          <button type="submit" class="btn btn-primary w-100">
-            {{ editIndex !== null ? 'Mettre à jour' : 'Ajouter' }}
+          <button
+            type="submit"
+            class="btn btn-success w-100 btn-lg"
+          >
+            {{ editIndex !== null ? '⚡️ Mettre à jour ⚡️' : '🚀 Ajouter 🚀' }}
           </button>
         </div>
       </div>
     </form>
 
-    <ul class="list-group">
+    <ul class="list-group mt-4">
       <li
         v-for="(projet, index) in projets"
         :key="index"
-        class="list-group-item d-flex justify-content-between align-items-center"
+        class="list-group-item d-flex justify-content-between align-items-center border-0 bg-transparent"
       >
-        <div>
+        <div class="text-dark">
           <strong>{{ projet.nom }}</strong> - {{ projet.dateDebut }} au {{ projet.dateFin }}
         </div>
         <div>
-          <button @click="startEdit(index)" class="btn btn-sm btn-warning me-2">Modifier</button>
-          <button @click="deleteProjet(index)" class="btn btn-sm btn-danger">Supprimer</button>
+          <button @click="startEdit(index)" class="btn btn-sm btn-outline-warning me-2">✏️ Modifier</button>
+          <button @click="deleteProjet(index)" class="btn btn-sm btn-outline-danger">🗑️ Supprimer</button>
         </div>
       </li>
     </ul>
@@ -72,3 +93,7 @@ const deleteProjet = (index) => {
   projetsStore.removeProjet(index);
 };
 </script>
+
+<style scoped>
+/* Aucun style CSS personnalisé */
+</style>
