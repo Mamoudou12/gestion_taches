@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <h1 class="text-center mb-4 display-4 text-primary fw-bold">
-      📝 Gestion des Tâches 📝
+      🌟 Gestion des Tâches 🌟
     </h1>
     
     <form @submit.prevent="addTache" class="p-4 rounded shadow-sm bg-light">
@@ -22,7 +22,19 @@
             required
           />
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
+          <select
+            v-model="newTache.projet"
+            class="form-select form-select-lg border-primary"
+            required
+          >
+            <option value="" disabled>Choisissez un projet</option>
+            <option v-for="projet in projets" :key="projet.nom" :value="projet.nom">
+              {{ projet.nom }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-3">
           <input
             v-model="newTache.dateDebut"
             type="date"
@@ -30,25 +42,13 @@
             required
           />
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <input
             v-model="newTache.dateFin"
             type="date"
             class="form-control form-control-lg border-primary"
             required
           />
-        </div>
-        <div class="col-md-4">
-          <select
-            v-model="newTache.projet"
-            class="form-select form-select-lg border-primary"
-            required
-          >
-            <option value="" disabled selected>Choisir un projet</option>
-            <option v-for="projet in projets" :key="projet.nom" :value="projet.nom">
-              {{ projet.nom }}
-            </option>
-          </select>
         </div>
         <div class="col-md-2">
           <button
@@ -68,7 +68,7 @@
         class="list-group-item d-flex justify-content-between align-items-center border-0 bg-transparent"
       >
         <div class="text-dark">
-          <strong>{{ tache.nom }}</strong> - {{ tache.description }} ({{ tache.dateDebut }} - {{ tache.dateFin }})
+          <strong>{{ tache.nom }}</strong> - {{ tache.projet }} | {{ tache.dateDebut }} au {{ tache.dateFin }}
         </div>
         <div>
           <button @click="startEdit(index)" class="btn btn-sm btn-outline-warning me-2">✏️ Modifier</button>
@@ -86,6 +86,7 @@ import { useProjetsStore } from '../stores/projets';
 
 const tachesStore = useTachesStore();
 const projetsStore = useProjetsStore();
+
 const newTache = ref({
   nom: '',
   description: '',
@@ -100,11 +101,9 @@ const editIndex = ref(null);
 
 const addTache = () => {
   if (editIndex.value !== null) {
-    // Mise à jour d'une tâche existante
     tachesStore.updateTache(editIndex.value, { ...newTache.value });
     editIndex.value = null;
   } else {
-    // Ajout d'une nouvelle tâche
     tachesStore.addTache({ ...newTache.value });
   }
   newTache.value = { nom: '', description: '', dateDebut: '', dateFin: '', projet: '' };
@@ -124,6 +123,10 @@ onMounted(() => {
   // Charger les projets ou d'autres données nécessaires
 });
 </script>
+
+<style scoped>
+/* Aucun style CSS personnalisé */
+</style>
 
 <style scoped>
 /* Aucun style CSS personnalisé */

@@ -1,29 +1,53 @@
-# gestion_taches
+# 🌟 Gestion des Projets et des Tâches 🌟
 
-This template should help get you started developing with Vue 3 in Vite.
+Ce projet est une application web de gestion de projets et de tâches, construite avec Vue.js. Elle permet de créer, modifier, supprimer, et lister des projets ainsi que les tâches associées. Le design est simple et intuitif, avec une interface utilisateur fluide et agréable.
 
-## Recommended IDE Setup
+## 🚀 Fonctionnalités
+**Gestion des Projets**:
+  - Ajouter un nouveau projet avec un nom, une date de début, et une date de fin.
+  - Modifier les détails d'un projet existant.
+  - Supprimer un projet.
+  - Lister tous les projets.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+**Gestion des Tâches**:
+  - Ajouter une tâche à un projet existant avec un nom, une description, une date de début, une date de fin, et le projet associé.
+  - Modifier les détails d'une tâche existante.
+  - Supprimer une tâche.
+  - Lister toutes les tâches avec leur projet associé.
 
-## Customize configuration
+## Prérequis  
+Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
+- [Node.js](https://nodejs.org/) (version 14 ou supérieure)
+- [Vue CLI](https://cli.vuejs.org/) ou [Vite](https://vitejs.dev/)
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## 🛠️ Prise en main du projet
+1. **Cloner le dépôt:**
 
-## Project Setup
 
-```sh
-npm install
+```bash
+git clone https://github.com/votre-utilisateur/votre-projet.git
 ```
 
-### Compile and Hot-Reload for Development
+```bash
+cd votre-projet
+```
+2. Installer les dépendances:
 
-```sh
+```bash
+npm install
+```
+3. Lancer l'application:
+
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+# Auteurs
+[Mamoudou Adama Ba ](https://github.com/Mamoudou12)
 
-```sh
-npm run build
-```
+[Aichetou Taher Sy ](https://github.com/shyshasy)
+
+
+
+
+ 
