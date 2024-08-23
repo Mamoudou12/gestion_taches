@@ -25,7 +25,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants :
 
 
 ```bash
-git clone https://github.com/votre-utilisateur/votre-projet.git
+git clone https://github.com/Mamoudou12/gestion_taches.git
 ```
 
 ```bash
